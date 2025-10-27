@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.1">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1">&lt;title&gt;scarlettabbott | Composting Carbon Dashboard&lt;/title&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Google Font substitute for Proxima Nova --&gt;</p>
+<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&amp;display=swap" rel="stylesheet" /&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;!-- Chart.js CDN --&gt;</p>
+<p class="p1">&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">:root {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--primary-red: #F42350;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--sa-blue: #A1C1F9;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--warm-grey: #F9F6F0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--font-main: 'Nunito', sans-serif;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">body {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--font-main);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background-color: var(--warm-grey);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: #333;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">header {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background-color: var(--sa-blue);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>gap: 1rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">header img {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>height: 48px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width: auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>object-fit: contain;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">header h1 {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>user-select: none;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">main {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 900px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 2rem auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>box-shadow: 0 4px 10px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 2rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">h2 {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--sa-blue);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.progress-container {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background-color: #e3e3e3;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>height: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 1rem 0;</p>
+<p class="p1">}</p>
+<p class="p1">.progress-bar {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background-color: var(--sa-blue);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width: 0%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transition: width 0.8s ease;</p>
+<p class="p1">}</p>
+<p class="p1">.stats {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>flex-wrap: wrap;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 1rem 0;</p>
+<p class="p1">}</p>
+<p class="p1">.stats div {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>flex: 1 1 45%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 0.5rem 0;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">input[type="number"], input[type="text"] {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 1rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">button {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 0.7rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-top: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1">}</p>
+<p class="p1">button.add { background-color: var(--sa-blue); color: #fff; }</p>
+<p class="p1">button.reset { background-color: var(--primary-red); color: #fff; }</p>
+<p class="p1">button.add:hover { background-color: #8cb7f7; }</p>
+<p class="p1">button.reset:hover { background-color: #e01c48; }</p>
+<p class="p2"><br></p>
+<p class="p1">canvas {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-top: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>width: 100% !important;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>height: 350px !important;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">footer {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: #555;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 0.9rem;</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;img src="logo.png" alt="scarlettabbott logo" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;🌱 scarlettabbott | Composting Carbon Dashboard&lt;/h1&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Track Our Composting Carbon Offset&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p style="text-align:center;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>Use this dashboard to monitor how much carbon we’ve offset through composting and sustainability efforts.</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Editable Target --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="form-group" style="margin-top:1.5rem;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;strong&gt;Set/Update Target (kg CO₂e):&lt;/strong&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="targetInput" placeholder="Enter target e.g. 1000" min="1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="add" onclick="setTarget()"&gt;Update Target&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="progress-container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="progress-bar" id="progress-bar"&gt;0%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="stats"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;strong&gt;Total Offset:&lt;/strong&gt; &lt;span id="current"&gt;0&lt;/span&gt; kg CO₂e&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;strong&gt;Target:&lt;/strong&gt; &lt;span id="target"&gt;0&lt;/span&gt; kg CO₂e&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;&lt;strong&gt;Remaining:&lt;/strong&gt; &lt;span id="remaining"&gt;0&lt;/span&gt; kg CO₂e&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Add new data --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="form-group"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;label&gt;&lt;strong&gt;Add new composting offset (kg CO₂e):&lt;/strong&gt;&lt;/label&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="addAmount" placeholder="e.g. 25" min="0" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="add" onclick="addOffset()"&gt;Add Offset&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="reset" onclick="resetData()"&gt;Reset Data&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Chart --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;canvas id="trendChart"&gt;&lt;/canvas&gt;</p>
+<p class="p1">&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>© 2025 scarlettabbott | Workplace Sustainability Dashboard</p>
+<p class="p1">&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">// --- Variables &amp; Storage ---</p>
+<p class="p1">let target = parseFloat(localStorage.getItem("target")) || 1000;</p>
+<p class="p1">let currentOffset = parseFloat(localStorage.getItem("currentOffset")) || 0;</p>
+<p class="p1">let weeklyData = JSON.parse(localStorage.getItem("weeklyData")) || [];</p>
+<p class="p2"><br></p>
+<p class="p1">// --- DOM Elements ---</p>
+<p class="p1">const targetEl = document.getElementById("target");</p>
+<p class="p1">const currentEl = document.getElementById("current");</p>
+<p class="p1">const remainingEl = document.getElementById("remaining");</p>
+<p class="p1">const progressBar = document.getElementById("progress-bar");</p>
+<p class="p2"><br></p>
+<p class="p1">// --- Chart.js Setup ---</p>
+<p class="p1">const ctx = document.getElementById("trendChart").getContext("2d");</p>
+<p class="p1">let trendChart = new Chart(ctx, {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>type: "line",</p>
+<p class="p1"><span class="Apple-converted-space">  </span>data: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>labels: weeklyData.map((d) =&gt; d.week),</p>
+<p class="p1"><span class="Apple-converted-space">    </span>datasets: [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>label: "Weekly Composting Offset (kg CO₂e)",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>data: weeklyData.map((d) =&gt; d.amount),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>backgroundColor: "rgba(161,193,249,0.4)",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>borderColor: "#A1C1F9",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>borderWidth: 2,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>fill: true,</p>
+<p class="p1"><span class="Apple-converted-space">        </span>tension: 0.3,</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>],</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>options: {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>scales: {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>y: { beginAtZero: true, title: { display: true, text: "kg CO₂e" } },</p>
+<p class="p1"><span class="Apple-converted-space">      </span>x: { title: { display: true, text: "Week" } },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>plugins: {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>legend: { display: false },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">// --- Functions ---</p>
+<p class="p1">function updateDisplay() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>targetEl.textContent = target.toFixed(1);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>currentEl.textContent = currentOffset.toFixed(1);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const remaining = Math.max(0, target - currentOffset);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>remainingEl.textContent = remaining.toFixed(1);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const percent = Math.min(100, (currentOffset / target) * 100);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>progressBar.style.width = percent + "%";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>progressBar.textContent = percent.toFixed(1) + "%";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (percent &gt;= 100) progressBar.textContent = "🎉 Target Achieved!";</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function addOffset() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const val = parseFloat(document.getElementById("addAmount").value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (isNaN(val) || val &lt;= 0) return alert("Enter a valid number greater than 0.");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>currentOffset += val;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("currentOffset", currentOffset);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Weekly tracking</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const week = new Date().toLocaleDateString("en-GB", { month: "short", day: "numeric" });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>weeklyData.push({ week, amount: val });</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("weeklyData", JSON.stringify(weeklyData));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>trendChart.data.labels = weeklyData.map((d) =&gt; d.week);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>trendChart.data.datasets[0].data = weeklyData.map((d) =&gt; d.amount);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>trendChart.update();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById("addAmount").value = "";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateDisplay();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function resetData() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (!confirm("Reset all stored composting data?")) return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>currentOffset = 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>weeklyData = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("currentOffset", currentOffset);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("weeklyData", JSON.stringify(weeklyData));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>trendChart.data.labels = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>trendChart.data.datasets[0].data = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>trendChart.update();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateDisplay();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function setTarget() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const val = parseFloat(document.getElementById("targetInput").value);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if (isNaN(val) || val &lt;= 0) return alert("Please enter a valid target.");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>target = val;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localStorage.setItem("target", target);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>updateDisplay();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">updateDisplay();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
